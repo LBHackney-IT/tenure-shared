@@ -54,8 +54,7 @@ jobs:
           name: Publish to GitHub
           command: |
             cd /root/project/Hackney.Shared.Tenure/bin/Release
-            dir
-            dotnet nuget push TenureShared.*.nupkg -s https://nuget.pkg.github.com/LBHackney-IT/index.json --api-key ${NUGET_KEY} TenureShared.*/*.nupkg
+            dotnet nuget push Hackney.Shared.Tenure.*.nupkg -s https://nuget.pkg.github.com/LBHackney-IT/index.json --api-key ${NUGET_KEY} Hackney.Shared.Tenure.*/*.nupkg
 workflows:
    nuget-package:
     jobs:
