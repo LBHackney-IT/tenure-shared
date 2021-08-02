@@ -36,10 +36,10 @@ jobs:
   #     - setup_remote_docker
   #     - run:
   #         name: build
-  #         command: docker-compose build hackney-shared-person-test
+  #         command: docker-compose build hackney-shared-tenure-test
   #     - run:
   #         name: Run tests
-  #         command: docker-compose run hackney-shared-person-test
+  #         command: docker-compose run hackney-shared-tenure-test
   publish-package:
     executor: docker-dotnet
     steps:
@@ -54,6 +54,7 @@ jobs:
           name: Publish to GitHub
           command: |
             cd /root/project/Hackney.Shared.Tenure/bin/Release
+            dir
             dotnet nuget push Hackney.Shared.Tenure.*.nupkg -s https://nuget.pkg.github.com/LBHackney-IT/index.json --api-key ${NUGET_KEY} Hackney.Shared.Tenure.*/*.nupkg
 workflows:
    nuget-package:
@@ -66,4 +67,3 @@ workflows:
           filters:
             branches:
               only: release
-          
