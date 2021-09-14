@@ -9,5 +9,8 @@
    <Description>Shared Library for Tenure service</Description>
    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
  </PropertyGroup>
+ <ItemGroup>
+   <PackageReference Include="System.Text.Json" Version="5.0.2" />
+ </ItemGroup>
 </Project>
 
