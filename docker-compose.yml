@@ -1,0 +1,40 @@
+version: "3.2"
+
+services:
+  hackney-shared-tenure:
+    image: hackney-shared-tenure
+    build:
+      context: .
+      dockerfile: Hackney.Shared.Tenure/Dockerfile
+      args:
+        - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
+    ports:
+      - 3000:3000
+    environment:
+     - DynamoDb_LocalMode=true
+     - DynamoDb_LocalServiceUrl=http://dynamodb-database:8000
+     - AWS_REGION=eu-west-2
+     - AWS_ACCESS_KEY_ID=local
+     - AWS_SECRET_ACCESS_KEY=local
+    links:
+      - dynamodb-database
+
+  hackney-shared-tenure-test:
+    image: hackney-shared-tenure-test
+    build:
+      context: .
+      dockerfile: Hackney.Shared.Tenure.Tests/Dockerfile
+      args:
+        - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
+    environment:
+      - DynamoDb_LocalMode=true
+      - AWS_REGION=eu-west-2
+      - AWS_ACCESS_KEY_ID=local
+      - AWS_SECRET_ACCESS_KEY=local
+    links:
+      - dynamodb-database
+
+  dynamodb-database:
+    image: amazon/dynamodb-local
+    ports:
+      - 8000:8000
