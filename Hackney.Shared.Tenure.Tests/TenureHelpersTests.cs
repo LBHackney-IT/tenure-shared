@@ -38,7 +38,7 @@ namespace Hackney.Shared.Tenure.Tests
         [Fact]
         public void IsTenureActiveTestNullDateTimeReturnsTrue()
         {
-            TenureHelpers.IsTenureActive((DateTime?) null).Should().BeTrue();
+            TenureHelpers.IsTenureActive((DateTime?)null).Should().BeTrue();
         }
 
         [Theory]

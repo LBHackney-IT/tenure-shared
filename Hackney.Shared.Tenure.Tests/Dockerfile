@@ -12,7 +12,6 @@ WORKDIR /app
 COPY ./Hackney.Shared.Tenure.sln ./
 COPY ./Hackney.Shared.Tenure/Hackney.Shared.Tenure.csproj ./Hackney.Shared.Tenure/
 COPY ./Hackney.Shared.Tenure.Tests/Hackney.Shared.Tenure.Tests.csproj ./Hackney.Shared.Tenure.Tests/
-COPY /nuget.config /root/.nuget/NuGet/NuGet.Config
 
 RUN dotnet restore ./Hackney.Shared.Tenure/Hackney.Shared.Tenure.csproj
 RUN dotnet restore ./Hackney.Shared.Tenure.Tests/Hackney.Shared.Tenure.Tests.csproj
