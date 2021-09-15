@@ -3,7 +3,6 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1
 # disable microsoft telematry
 ENV DOTNET_CLI_TELEMETRY_OPTOUT='true'
 
-ENV DynamoDb_LocalMode='true'
 ARG LBHPACKAGESTOKEN
 ENV LBHPACKAGESTOKEN=$LBHPACKAGESTOKEN
 WORKDIR /app
@@ -12,6 +11,7 @@ WORKDIR /app
 COPY ./Hackney.Shared.Tenure.sln ./
 COPY ./Hackney.Shared.Tenure/Hackney.Shared.Tenure.csproj ./Hackney.Shared.Tenure/
 COPY ./Hackney.Shared.Tenure.Tests/Hackney.Shared.Tenure.Tests.csproj ./Hackney.Shared.Tenure.Tests/
+COPY /nuget.config /root/.nuget/NuGet/NuGet.Config
 
 RUN dotnet restore ./Hackney.Shared.Tenure/Hackney.Shared.Tenure.csproj
 RUN dotnet restore ./Hackney.Shared.Tenure.Tests/Hackney.Shared.Tenure.Tests.csproj

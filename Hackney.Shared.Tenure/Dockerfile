@@ -6,8 +6,8 @@ WORKDIR /app
 
 # Copy csproj and restore as distinct layers
 COPY ./Hackney.Shared.Tenure/Hackney.Shared.Tenure.csproj ./
+COPY /nuget.config /root/.nuget/NuGet/NuGet.Config
 RUN dotnet restore ./Hackney.Shared.Tenure.csproj
-
 
 # Copy everything else and build
 COPY ./Hackney.Shared.Tenure ./
