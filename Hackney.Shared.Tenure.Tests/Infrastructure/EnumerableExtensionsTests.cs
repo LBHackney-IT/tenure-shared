@@ -11,7 +11,7 @@ namespace Hackney.Shared.Tenure.Tests.Infrastructure
         [Fact]
         public void ToListOrEmptyTestNullReturnsEmpty()
         {
-            var sut = (IEnumerable<string>) null;
+            var sut = (IEnumerable<string>)null;
             sut.ToListOrEmpty().Should().BeEmpty();
         }
 
