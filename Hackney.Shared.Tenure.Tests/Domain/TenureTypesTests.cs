@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hackney.Shared.Tenure;
+using Hackney.Shared.Tenure.Domain;
 using Xunit;
 
 namespace Hackney.Shared.Tenure.Tests

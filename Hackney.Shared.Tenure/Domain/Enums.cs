@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Hackney.Shared.Tenure
+namespace Hackney.Shared.Tenure.Domain
 {
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum HouseholdMembersType

@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Hackney.Shared.Tenure
+namespace Hackney.Shared.Tenure.Domain
 {
     [ExcludeFromCodeCoverage]
     public static class TenureTypes

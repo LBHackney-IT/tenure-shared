@@ -1,6 +1,6 @@
 using System;
 
-namespace Hackney.Shared.Tenure
+namespace Hackney.Shared.Tenure.Domain
 {
     public class HouseholdMembers
     {

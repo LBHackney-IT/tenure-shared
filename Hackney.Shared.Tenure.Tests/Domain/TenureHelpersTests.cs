@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Hackney.Shared.Tenure;
+using Hackney.Shared.Tenure.Domain;
 using System;
 using Xunit;
 

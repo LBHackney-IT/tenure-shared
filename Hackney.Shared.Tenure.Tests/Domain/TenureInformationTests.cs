@@ -1,6 +1,6 @@
 using System;
 using FluentAssertions;
-using Hackney.Shared.Tenure;
+using Hackney.Shared.Tenure.Domain;
 using Xunit;
 
 namespace Hackney.Shared.Tenure.Tests
