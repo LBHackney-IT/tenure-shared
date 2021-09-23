@@ -1,10 +1,10 @@
 using FluentValidation.TestHelper;
 using System;
-using Hackney.Shared.Tenure.Boundary.Request.Validation;
+using Hackney.Shared.Tenure.Boundary.Requests.Validation;
 using Hackney.Shared.Tenure.Boundary.Requests;
 using Xunit;
 
-namespace Hackney.Shared.Tenure.Tests.Boundary.Request.Validation
+namespace Hackney.Shared.Tenure.Tests.Boundary.Requests.Validation
 {
     public class UpdateTenureRequestValidatorTests
     {

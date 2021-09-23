@@ -2,7 +2,7 @@ using FluentValidation;
 using System;
 using Hackney.Shared.Tenure.Boundary.Requests;
 
-namespace Hackney.Shared.Tenure.Boundary.Request.Validation
+namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
 {
     public class UpdateTenureRequestValidator : AbstractValidator<UpdateTenureRequest>
     {
