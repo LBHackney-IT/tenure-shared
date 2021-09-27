@@ -1,0 +1,10 @@
+version: "3.2"
+
+services:
+  hackney-shared-tenure-test:
+    image: hackney-shared-tenure-test
+    build:
+      context: .
+      dockerfile: Hackney.Shared.Tenure.Tests/Dockerfile
+      args:
+        - LBHPACKAGESTOKEN=${LBHPACKAGESTOKEN}
