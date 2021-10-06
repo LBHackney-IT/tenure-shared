@@ -3,9 +3,9 @@ using Hackney.Core.Validation;
 
 namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
 {
-    public class UpdateTenureRequestObjectValidation : AbstractValidator<UpdateTenureForPersonRequestObject>
+    public class UpdateTenureForPersonRequestObjectValidation : AbstractValidator<UpdateTenureForPersonRequestObject>
     {
-        public UpdateTenureRequestObjectValidation()
+        public UpdateTenureForPersonRequestObjectValidation()
         {
             RuleFor(x => x.FullName).NotXssString()
                          .WithErrorCode(ErrorCodes.XssCheckFailure);

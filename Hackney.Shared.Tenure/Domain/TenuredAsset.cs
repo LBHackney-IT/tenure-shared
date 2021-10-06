@@ -11,5 +11,7 @@ namespace Hackney.Shared.Tenure.Domain
         public string FullAddress { get; set; }
 
         public string Uprn { get; set; }
+
+        public string PropertyReference { get; set; }
     }
 }
