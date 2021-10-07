@@ -1,11 +1,7 @@
 using FluentValidation.TestHelper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Hackney.Shared.Tenure.Boundary.Requests;
 using Hackney.Shared.Tenure.Boundary.Requests.Validation;
 using Hackney.Shared.Tenure.Domain;
+using System;
 using Xunit;
 
 namespace Hackney.Shared.Tenure.Tests.Boundary.Validation

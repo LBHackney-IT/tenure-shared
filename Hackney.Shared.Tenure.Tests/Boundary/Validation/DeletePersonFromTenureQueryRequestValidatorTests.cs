@@ -6,35 +6,35 @@ using Xunit;
 
 namespace Hackney.Shared.Tenure.Tests.Boundary.Requests.Validation
 {
-    public class UpdateTenureRequestValidatorTests
+    public class DeletePersonFromTenureQueryRequestValidatorTests
     {
-        private readonly UpdateTenureRequestValidator _sut;
+        private readonly DeletePersonFromTenureQueryRequestValidator _sut;
 
-        public UpdateTenureRequestValidatorTests()
+        public DeletePersonFromTenureQueryRequestValidatorTests()
         {
-            _sut = new UpdateTenureRequestValidator();
+            _sut = new DeletePersonFromTenureQueryRequestValidator();
         }
 
         [Fact]
-        public void RequestShouldErrorWithNullId()
+        public void RequestShouldErrorWithNullTenureId()
         {
-            var query = new UpdateTenureRequest();
+            var query = new DeletePersonFromTenureQueryRequest();
             var result = _sut.TestValidate(query);
-            result.ShouldHaveValidationErrorFor(x => x.Id);
+            result.ShouldHaveValidationErrorFor(x => x.TenureId);
         }
 
         [Fact]
         public void RequestShouldErrorWithEmptyId()
         {
-            var query = new UpdateTenureRequest() { Id = Guid.Empty };
+            var query = new DeletePersonFromTenureQueryRequest() { TenureId = Guid.Empty };
             var result = _sut.TestValidate(query);
-            result.ShouldHaveValidationErrorFor(x => x.Id);
+            result.ShouldHaveValidationErrorFor(x => x.TenureId);
         }
 
         [Fact]
         public void RequestShouldErrorWithNullPersonId()
         {
-            var query = new UpdateTenureRequest();
+            var query = new DeletePersonFromTenureQueryRequest();
             var result = _sut.TestValidate(query);
             result.ShouldHaveValidationErrorFor(x => x.PersonId);
         }
@@ -42,7 +42,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Requests.Validation
         [Fact]
         public void RequestShouldErrorWithEmptyPersonId()
         {
-            var query = new UpdateTenureRequest() { PersonId = Guid.Empty };
+            var query = new DeletePersonFromTenureQueryRequest() { PersonId = Guid.Empty };
             var result = _sut.TestValidate(query);
             result.ShouldHaveValidationErrorFor(x => x.PersonId);
         }
