@@ -8,9 +8,9 @@ namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
     {
         public TenuredAssetValidator()
         {
-            int intVal;
-            RuleFor(x => x.PropertyReference).Must(x => (6 == x.Length)
-                                                        && int.TryParse(x, out intVal))
+            long longVal;
+            RuleFor(x => x.PropertyReference).MinimumLength(6)
+                                             .Must(x => long.TryParse(x, out longVal))
                                              .When(x => !string.IsNullOrEmpty(x.PropertyReference));
 
             RuleFor(x => x.FullAddress).NotXssString()

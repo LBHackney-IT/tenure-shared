@@ -59,6 +59,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
 
         [Theory]
         [InlineData("dflkgjdflgj")]
+        [InlineData("00")]
         [InlineData("00000")]
         public void PropertyReferenceShouldErrorWithInvalidValueInValue(string value)
         {
@@ -71,7 +72,8 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         [InlineData(null)]
         [InlineData("")]
         [InlineData("098452")]
-        [InlineData("987432")]
+        [InlineData("9874328")]
+        [InlineData("9874328456778")]
         public void PropertyReferenceShouldNotErrorWithValidValue(string value)
         {
             var model = new TenuredAsset() { PropertyReference = value };
