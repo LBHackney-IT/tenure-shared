@@ -79,7 +79,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var model = new EditTenureDetailsRequestObject()
             {
-                PaymentReference = value 
+                PaymentReference = value
             };
 
             var result = _classUnderTest.TestValidate(model);
