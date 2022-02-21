@@ -9,6 +9,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     public class EditTenureDetailsRequestValidatorTests
     {
         public EditTenureDetailsRequestValidation _classUnderTest;
+        private const string StringWithTags = "Some string with <tag> in it.";
 
         public EditTenureDetailsRequestValidatorTests()
         {
@@ -69,6 +70,36 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
             var result = _classUnderTest.TestValidate(request);
 
             result.ShouldHaveValidationErrorFor(x => x.EndOfTenureDate).WithErrorCode(ErrorCodes.TenureEndDate);
+        }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void PaymentReferenceShouldNotErrorWithNoValue(string value)
+        {
+            var model = new EditTenureDetailsRequestObject()
+            {
+                PaymentReference = value
+            };
+
+            var result = _classUnderTest.TestValidate(model);
+
+            result.ShouldNotHaveValidationErrorFor(x => x.PaymentReference);
+
+        }
+
+        [Fact]
+        public void PaymentReferenceShouldErrorWithhTagsInValue()
+        {
+            var model = new EditTenureDetailsRequestObject()
+            {
+                PaymentReference = StringWithTags
+            };
+
+            var result = _classUnderTest.TestValidate(model);
+
+            result.ShouldHaveValidationErrorFor(x => x.PaymentReference)
+                .WithErrorCode(ErrorCodes.XssCheckFailure);
         }
     }
 }
