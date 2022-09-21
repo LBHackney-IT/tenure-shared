@@ -31,5 +31,17 @@ namespace Hackney.Shared.Tenure.Domain
         public bool? IsSublet { get; set; }
         public DateTime? SubletEndDate { get; set; }
         public int? VersionNumber { get; set; }
+        public string JigsawRef { get; set; }
+        public string FundingSource { get; set; }
+        public int? NoOfAdults { get; set; }
+        public int? NoOfChildren { get; set; }
+        public bool? HasStorage { get; set; }
+        public bool? RentAccountRequired { get; set; }
+        public string NoRentAccountReason { get; set; }
+        public DateTime? ActualStartOfTenure { get; set; }
+        public DateTime? RentLetterDate { get; set; }
+        public DateTime? RentCardDate { get; set; }
+        public DateTime? MoveOnDate { get; set; }
+        public DateTime? MoveOnAddress { get; set; }
     }
 }
