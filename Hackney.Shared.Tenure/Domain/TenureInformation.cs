@@ -43,5 +43,6 @@ namespace Hackney.Shared.Tenure.Domain
         public DateTime? RentCardDate { get; set; }
         public DateTime? MoveOnDate { get; set; }
         public DateTime? MoveOnAddress { get; set; }
+        public string ReasonForTermination { get; set; }
     }
 }
