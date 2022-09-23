@@ -38,11 +38,9 @@ namespace Hackney.Shared.Tenure.Domain
         public bool? HasStorage { get; set; }
         public bool? RentAccountRequired { get; set; }
         public string NoRentAccountReason { get; set; }
-        public DateTime? ActualStartOfTenure { get; set; }
         public DateTime? RentLetterDate { get; set; }
         public DateTime? RentCardDate { get; set; }
-        public DateTime? MoveOnDate { get; set; }
-        public DateTime? MoveOnAddress { get; set; }
+        public string MoveOnAddress { get; set; }
         public string ReasonForTermination { get; set; }
     }
 }
