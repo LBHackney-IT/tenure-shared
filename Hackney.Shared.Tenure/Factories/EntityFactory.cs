@@ -12,6 +12,7 @@ namespace Hackney.Shared.Tenure.Factories
                 Id = databaseEntity.Id,
                 Terminated = databaseEntity.Terminated,
                 TenureType = databaseEntity.TenureType,
+                TenureSource = databaseEntity.TenureSource,
                 TenuredAsset = databaseEntity.TenuredAsset,
                 SuccessionDate = databaseEntity.SuccessionDate,
                 AgreementType = databaseEntity.AgreementType,
@@ -29,7 +30,12 @@ namespace Hackney.Shared.Tenure.Factories
                 PotentialEndDate = databaseEntity.PotentialEndDate,
                 StartOfTenureDate = databaseEntity.StartOfTenureDate,
                 SubletEndDate = databaseEntity.SubletEndDate,
-                VersionNumber = databaseEntity.VersionNumber
+                VersionNumber = databaseEntity.VersionNumber,
+                FundingSource = databaseEntity.FundingSource,
+                NumberOfAdultsInProperty = databaseEntity.NumberOfAdultsInProperty,
+                NumberOfChildrenInProperty = databaseEntity.NumberOfChildrenInProperty,
+                HasOffsiteStorage = databaseEntity.HasOffsiteStorage,
+                Account = databaseEntity.Account
             };
         }
 
@@ -40,6 +46,7 @@ namespace Hackney.Shared.Tenure.Factories
                 Id = entity.Id,
                 Terminated = entity.Terminated,
                 TenureType = entity.TenureType,
+                TenureSource = entity.TenureSource,
                 TenuredAsset = entity.TenuredAsset,
                 SuccessionDate = entity.SuccessionDate,
                 AgreementType = entity.AgreementType,
@@ -57,7 +64,12 @@ namespace Hackney.Shared.Tenure.Factories
                 PotentialEndDate = entity.PotentialEndDate,
                 StartOfTenureDate = entity.StartOfTenureDate,
                 SubletEndDate = entity.SubletEndDate,
-                VersionNumber = entity.VersionNumber
+                VersionNumber = entity.VersionNumber,
+                FundingSource = entity.FundingSource,
+                NumberOfAdultsInProperty = entity.NumberOfAdultsInProperty,
+                NumberOfChildrenInProperty = entity.NumberOfChildrenInProperty,
+                HasOffsiteStorage = entity.HasOffsiteStorage,
+                Account = entity.Account
             };
         }
     }
