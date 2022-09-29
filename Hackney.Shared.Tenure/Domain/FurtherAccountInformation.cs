@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hackney.Shared.Tenure.Domain
 {
-    public class Account
+    public class FurtherAccountInformation
     {
         public bool? IsRentAccountRequired { get; set; }
         public string NoRentAccountReason { get; set; }

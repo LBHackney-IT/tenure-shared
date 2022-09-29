@@ -28,9 +28,9 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public List<LegacyReference> LegacyReferences { get; set; }
         public AgreementType AgreementType { get; set; }
         public string FundingSource { get; set; }
-        public string NumberOfAdultsInProperty { get; set; }
-        public string NumberOfChildrenInProperty { get; set; }
+        public int NumberOfAdultsInProperty { get; set; }
+        public int NumberOfChildrenInProperty { get; set; }
         public bool? HasOffsiteStorage { get; set; }
-        public Account Account { get; set; }
+        public FurtherAccountInformation FurtherAccountInformation { get; set; }
     }
 }

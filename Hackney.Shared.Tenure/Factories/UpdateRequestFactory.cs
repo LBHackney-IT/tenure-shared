@@ -15,7 +15,6 @@ namespace Hackney.Shared.Tenure.Factories
                 TenureType = updateTenureRequestObject.TenureType,
                 TenureSource = updateTenureRequestObject.TenureSource,
                 Terminated = updateTenureRequestObject.Terminated,
-                PaymentReference = updateTenureRequestObject.PaymentReference,
                 HouseholdMembers = updateTenureRequestObject.HouseholdMembers.ToListOrNull(),
                 LegacyReferences = null,
                 Notices = null,
@@ -23,7 +22,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = updateTenureRequestObject.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = updateTenureRequestObject.NumberOfChildrenInProperty,
                 HasOffsiteStorage = updateTenureRequestObject.HasOffsiteStorage,
-                Account = updateTenureRequestObject.Account
+                FurtherAccountInformation = updateTenureRequestObject.FurtherAccountInformation
             };
         }
     }

@@ -80,16 +80,16 @@ namespace Hackney.Shared.Tenure.Infrastructure
         public string FundingSource { get; set; }
 
         [DynamoDBProperty]
-        public string NumberOfAdultsInProperty { get; set; }
+        public int NumberOfAdultsInProperty { get; set; }
 
         [DynamoDBProperty]
-        public string NumberOfChildrenInProperty { get; set; }
+        public int NumberOfChildrenInProperty { get; set; }
 
         [DynamoDBProperty(Converter = typeof(DynamoDbBoolConverter))]
         public bool? HasOffsiteStorage { get; set; }
 
-        [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<Account>))]
-        public Account Account { get; set; }
+        [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<FurtherAccountInformation>))]
+        public FurtherAccountInformation FurtherAccountInformation { get; set; }
 
     }
 }
