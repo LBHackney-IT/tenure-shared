@@ -32,8 +32,14 @@ namespace Hackney.Shared.Tenure.Factories
                 SuccessionDate = domain.SuccessionDate,
                 TenuredAsset = domain.TenuredAsset,
                 TenureType = domain.TenureType,
+                TenureSource = domain.TenureSource,
                 Terminated = domain.Terminated,
-                AgreementType = domain.AgreementType
+                AgreementType = domain.AgreementType,
+                FundingSource = domain.FundingSource,
+                NumberOfAdultsInProperty = domain.NumberOfAdultsInProperty,
+                NumberOfChildrenInProperty = domain.NumberOfChildrenInProperty,
+                HasOffsiteStorage = domain.HasOffsiteStorage,
+                FurtherAccountInformation = domain.FurtherAccountInformation
             };
         }
 

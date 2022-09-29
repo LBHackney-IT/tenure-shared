@@ -29,7 +29,13 @@ namespace Hackney.Shared.Tenure.Factories
                 SuccessionDate = createTenureRequestObject.SuccessionDate,
                 TenuredAsset = createTenureRequestObject.TenuredAsset,
                 TenureType = createTenureRequestObject.TenureType,
-                Terminated = createTenureRequestObject.Terminated
+                TenureSource = createTenureRequestObject.TenureSource,
+                Terminated = createTenureRequestObject.Terminated,
+                FundingSource = createTenureRequestObject.FundingSource,
+                NumberOfAdultsInProperty = createTenureRequestObject.NumberOfAdultsInProperty,
+                NumberOfChildrenInProperty = createTenureRequestObject.NumberOfChildrenInProperty,
+                HasOffsiteStorage = createTenureRequestObject.HasOffsiteStorage,
+                FurtherAccountInformation = createTenureRequestObject.FurtherAccountInformation
             };
         }
     }

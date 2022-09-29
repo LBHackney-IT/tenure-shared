@@ -14,6 +14,7 @@ namespace Hackney.Shared.Tenure.Boundary.Response
         public DateTime? StartOfTenureDate { get; set; }
         public DateTime? EndOfTenureDate { get; set; }
         public TenureType TenureType { get; set; }
+        public string TenureSource { get; set; }
         public bool IsActive { get; set; }
         public bool? IsTenanted { get; set; }
         public Terminated Terminated { get; set; }
@@ -27,5 +28,10 @@ namespace Hackney.Shared.Tenure.Boundary.Response
         public List<Notices> Notices { get; set; }
         public List<LegacyReference> LegacyReferences { get; set; }
         public AgreementType AgreementType { get; set; }
+        public string FundingSource { get; set; }
+        public int NumberOfAdultsInProperty { get; set; }
+        public int NumberOfChildrenInProperty { get; set; }
+        public bool? HasOffsiteStorage { get; set; }
+        public FurtherAccountInformation FurtherAccountInformation { get; set; }
     }
 }

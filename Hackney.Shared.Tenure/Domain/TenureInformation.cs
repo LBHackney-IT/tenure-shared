@@ -14,7 +14,7 @@ namespace Hackney.Shared.Tenure.Domain
         public DateTime? StartOfTenureDate { get; set; }
         public DateTime? EndOfTenureDate { get; set; }
         public TenureType TenureType { get; set; }
-
+        public string TenureSource { get; set; }
         [JsonIgnore]
         public bool IsActive => TenureHelpers.IsTenureActive(EndOfTenureDate);
 
@@ -31,5 +31,11 @@ namespace Hackney.Shared.Tenure.Domain
         public bool? IsSublet { get; set; }
         public DateTime? SubletEndDate { get; set; }
         public int? VersionNumber { get; set; }
+        public string FundingSource { get; set; }
+        public int NumberOfAdultsInProperty { get; set; }
+        public int NumberOfChildrenInProperty { get; set; }
+        public bool? HasOffsiteStorage { get; set; }
+        public FurtherAccountInformation FurtherAccountInformation { get; set; }
+
     }
 }

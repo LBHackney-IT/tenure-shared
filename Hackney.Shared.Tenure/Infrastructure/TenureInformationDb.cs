@@ -72,5 +72,24 @@ namespace Hackney.Shared.Tenure.Infrastructure
 
         [DynamoDBVersion]
         public int? VersionNumber { get; set; }
+
+        [DynamoDBProperty]
+        public string TenureSource { get; set; }
+
+        [DynamoDBProperty]
+        public string FundingSource { get; set; }
+
+        [DynamoDBProperty]
+        public int NumberOfAdultsInProperty { get; set; }
+
+        [DynamoDBProperty]
+        public int NumberOfChildrenInProperty { get; set; }
+
+        [DynamoDBProperty(Converter = typeof(DynamoDbBoolConverter))]
+        public bool? HasOffsiteStorage { get; set; }
+
+        [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<FurtherAccountInformation>))]
+        public FurtherAccountInformation FurtherAccountInformation { get; set; }
+
     }
 }
