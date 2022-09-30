@@ -71,5 +71,35 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
 
             result.ShouldHaveValidationErrorFor(x => x.EndOfTenureDate).WithErrorCode(ErrorCodes.TenureEndDate);
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        public void PaymentReferenceShouldNotErrorWithNoValue(string value)
+        {
+            var model = new EditTenureDetailsRequestObject()
+            {
+                PaymentReference = value
+            };
+
+            var result = _classUnderTest.TestValidate(model);
+
+            result.ShouldNotHaveValidationErrorFor(x => x.PaymentReference);
+
+        }
+
+        [Fact]
+        public void PaymentReferenceShouldErrorWithhTagsInValue()
+        {
+            var model = new EditTenureDetailsRequestObject()
+            {
+                PaymentReference = StringWithTags
+            };
+
+            var result = _classUnderTest.TestValidate(model);
+
+            result.ShouldHaveValidationErrorFor(x => x.PaymentReference)
+                .WithErrorCode(ErrorCodes.XssCheckFailure);
+        }
     }
 }

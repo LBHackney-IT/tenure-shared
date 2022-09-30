@@ -17,6 +17,8 @@ namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
             });
 
             RuleFor(x => x.TenureType).SetValidator(new TenureTypeValidator());
+            RuleFor(x => x.PaymentReference).NotXssString()
+                            .WithErrorCode(ErrorCodes.XssCheckFailure);
         }
     }
 }

@@ -7,6 +7,8 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
     {
         public DateTime? StartOfTenureDate { get; set; }
         public DateTime? EndOfTenureDate { get; set; }
+        //This is needed by the finance api so adding back in
+        public string PaymentReference { get; set; }
         public TenureType TenureType { get; set; }
         public string TenureSource { get; set; }
         public Terminated Terminated { get; set; }

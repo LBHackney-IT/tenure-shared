@@ -10,6 +10,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public List<HouseholdMembers> HouseholdMembers { get; set; }
         public DateTime? StartOfTenureDate { get; set; }
         public DateTime? EndOfTenureDate { get; set; }
+        public string PaymentReference { get; set; }
         public TenureType TenureType { get; set; }
         public string TenureSource { get; set; }
         public Terminated Terminated { get; set; }
