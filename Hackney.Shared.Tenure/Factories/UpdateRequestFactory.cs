@@ -16,7 +16,7 @@ namespace Hackney.Shared.Tenure.Factories
                 TenureSource = updateTenureRequestObject.TenureSource,
                 Terminated = updateTenureRequestObject.Terminated,
                 HouseholdMembers = updateTenureRequestObject.HouseholdMembers.ToListOrNull(),
-                LegacyReferences = updateTenureRequestObject.LegacyReferences.ToListOrEmpty(),
+                LegacyReferences = updateTenureRequestObject.LegacyReferences.ToListOrNull(),
                 Notices = null,
                 FundingSource = updateTenureRequestObject.FundingSource,
                 NumberOfAdultsInProperty = updateTenureRequestObject.NumberOfAdultsInProperty,
