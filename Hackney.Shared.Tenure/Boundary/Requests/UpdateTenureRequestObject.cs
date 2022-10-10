@@ -19,5 +19,6 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public int NumberOfChildrenInProperty { get; set; }
         public bool? HasOffsiteStorage { get; set; }
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
+        public IEnumerable<LegacyReference> LegacyReferences { get; set; }
     }
 }
