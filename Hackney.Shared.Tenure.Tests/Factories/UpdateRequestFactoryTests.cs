@@ -19,7 +19,6 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             if (nullHMs) request.HouseholdMembers = null;
 
             var databaseEntity = request.ToDatabase();
-            databaseEntity.LegacyReferences.Should().BeNull();
             databaseEntity.Notices.Should().BeNull();
             databaseEntity.HouseholdMembers.Should().BeEquivalentTo(nullHMs ? null : request.HouseholdMembers);
         }
