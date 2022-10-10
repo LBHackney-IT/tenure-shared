@@ -16,14 +16,14 @@ namespace Hackney.Shared.Tenure.Factories
                 TenureSource = updateTenureRequestObject.TenureSource,
                 Terminated = updateTenureRequestObject.Terminated,
                 HouseholdMembers = updateTenureRequestObject.HouseholdMembers.ToListOrNull(),
-                LegacyReferences = null,
+                LegacyReferences = updateTenureRequestObject.LegacyReferences.ToListOrEmpty(),
                 Notices = null,
                 FundingSource = updateTenureRequestObject.FundingSource,
                 NumberOfAdultsInProperty = updateTenureRequestObject.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = updateTenureRequestObject.NumberOfChildrenInProperty,
                 HasOffsiteStorage = updateTenureRequestObject.HasOffsiteStorage,
                 FurtherAccountInformation = updateTenureRequestObject.FurtherAccountInformation,
-                PaymentReference = updateTenureRequestObject.PaymentReference,
+                PaymentReference = updateTenureRequestObject.PaymentReference
             };
         }
     }
