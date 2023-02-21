@@ -13,5 +13,6 @@ namespace Hackney.Shared.Tenure.Domain
         public string Uprn { get; set; }
 
         public string PropertyReference { get; set; }
+        public bool? IsTemporaryAccommodation { get; set; }
     }
 }
