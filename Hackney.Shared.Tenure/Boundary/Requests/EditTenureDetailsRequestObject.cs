@@ -19,5 +19,6 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public bool? HasOffsiteStorage { get; set; }
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
         public IEnumerable<LegacyReference> LegacyReferences { get; set; }
+        public TenuredAsset TenuredAsset { get; set; }
     }
 }
