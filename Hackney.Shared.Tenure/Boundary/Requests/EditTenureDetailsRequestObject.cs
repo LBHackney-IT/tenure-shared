@@ -14,6 +14,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public TenureType TenureType { get; set; }
         public string TenureSource { get; set; }
         public Terminated Terminated { get; set; }
+        public DateTime? PotentialEndDate { get; set; }
         public string FundingSource { get; set; }
         public int NumberOfAdultsInProperty { get; set; }
         public int NumberOfChildrenInProperty { get; set; }
