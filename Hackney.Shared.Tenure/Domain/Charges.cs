@@ -38,5 +38,10 @@ namespace Hackney.Shared.Tenure.Domain
         /// A reason given for the <see cref="RentAdjustment"/>
         /// </summary>
         public string RentAdjustmentReason { get; set; }
+
+        /// <summary>
+        /// TA: this is to stop the tenant being charged
+        /// </summary>
+        public bool? IsSuspended { get; set; }
     }
 }
