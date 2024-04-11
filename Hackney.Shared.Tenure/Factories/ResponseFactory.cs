@@ -8,6 +8,7 @@ namespace Hackney.Shared.Tenure.Factories
 {
     public static class ResponseFactory
     {
+        #region Tenure Information
         public static TenureResponseObject ToResponse(this TenureInformation domain)
         {
             if (domain == null) return null;
@@ -39,6 +40,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = domain.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = domain.NumberOfChildrenInProperty,
                 HasOffsiteStorage = domain.HasOffsiteStorage,
+                TempAccInfo = domain.TempAccInfo.ToResponse(),
                 FurtherAccountInformation = domain.FurtherAccountInformation
             };
         }
@@ -48,7 +50,26 @@ namespace Hackney.Shared.Tenure.Factories
             if (null == domainList) return new List<TenureResponseObject>();
             return domainList.Select(domain => ToResponse(domain)).ToList();
         }
+        #endregion
+        #region Temporary Accommodation Information
+        public static TemporaryAccommodationOfficerResponse ToResponse(this TemporaryAccommodationOfficer taOfficerDomain)
+        {
+            return new TemporaryAccommodationOfficerResponse
+            {
+                FirstName = taOfficerDomain.FirstName,
+                LastName = taOfficerDomain.LastName,
+                Email = taOfficerDomain.Email
+            };
+        }
 
-
+        public static TemporaryAccommodationInfoResponse ToResponse(this TemporaryAccommodationInfo taInfoDomain)
+        {
+            return new TemporaryAccommodationInfoResponse
+            {
+                BookingStatus = taInfoDomain.BookingStatus,
+                AssignedOfficer = taInfoDomain.AssignedOfficer.ToResponse()
+            };
+        }
+        #endregion
     }
 }
