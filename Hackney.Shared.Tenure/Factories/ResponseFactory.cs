@@ -54,6 +54,8 @@ namespace Hackney.Shared.Tenure.Factories
         #region Temporary Accommodation Information
         public static TemporaryAccommodationOfficerResponse ToResponse(this TemporaryAccommodationOfficer taOfficerDomain)
         {
+            if (taOfficerDomain == null) return null;
+
             return new TemporaryAccommodationOfficerResponse
             {
                 FirstName = taOfficerDomain.FirstName,
@@ -64,6 +66,8 @@ namespace Hackney.Shared.Tenure.Factories
 
         public static TemporaryAccommodationInfoResponse ToResponse(this TemporaryAccommodationInfo taInfoDomain)
         {
+            if (taInfoDomain == null) return null;
+
             return new TemporaryAccommodationInfoResponse
             {
                 BookingStatus = taInfoDomain.BookingStatus,
