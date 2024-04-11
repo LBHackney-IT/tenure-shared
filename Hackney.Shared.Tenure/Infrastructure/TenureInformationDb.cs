@@ -88,8 +88,10 @@ namespace Hackney.Shared.Tenure.Infrastructure
         [DynamoDBProperty(Converter = typeof(DynamoDbBoolConverter))]
         public bool? HasOffsiteStorage { get; set; }
 
+        [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<TemporaryAccommodationInfoDb>))]
+        public TemporaryAccommodationInfoDb TempAccInfo { get; set; }
+
         [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<FurtherAccountInformation>))]
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
-
     }
 }
