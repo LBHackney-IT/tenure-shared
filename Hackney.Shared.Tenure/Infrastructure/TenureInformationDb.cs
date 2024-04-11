@@ -91,5 +91,10 @@ namespace Hackney.Shared.Tenure.Infrastructure
         [DynamoDBProperty(Converter = typeof(DynamoDbObjectConverter<FurtherAccountInformation>))]
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
 
+        [DynamoDBProperty]
+        public string TaOfficer { get; set; }
+
+        [DynamoDBProperty]
+        public string TaStatus { get; set; }
     }
 }

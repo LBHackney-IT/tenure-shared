@@ -22,5 +22,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
         public IEnumerable<LegacyReference> LegacyReferences { get; set; }
         public TenuredAsset TenuredAsset { get; set; }
+        public string TaOfficer { get; set; }
+        public string TaStatus { get; set; }
     }
 }
