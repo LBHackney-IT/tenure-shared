@@ -14,6 +14,32 @@ namespace Hackney.Shared.Tenure.Tests.Factories
 
         #region Tenure Information
         [Fact]
+        public void NullTenureDomainMapsToNullTenureDatabaseEntity()
+        {
+            // arrange
+            TenureInformation domainTenure = null;
+
+            // act
+            var entityTenure = domainTenure.ToDatabase();
+
+            // assert
+            entityTenure.Should().BeNull();
+        }
+
+        [Fact]
+        public void NullTenureDatabaseEntityMapsToNullTenureDomain()
+        {
+            // arrange
+            TenureInformationDb entityTenure = null;
+
+            // act
+            var domainTenure = entityTenure.ToDomain();
+
+            // assert
+            domainTenure.Should().BeNull();
+        }
+
+        [Fact]
         public void CanMapADatabaseEntityToADomainObject()
         {
             var databaseEntity = _fixture.Create<TenureInformationDb>();

@@ -10,6 +10,8 @@ namespace Hackney.Shared.Tenure.Factories
         // Entity to Domain
         public static TenureInformation ToDomain(this TenureInformationDb databaseEntity)
         {
+            if (databaseEntity == null) return null;
+
             return new TenureInformation
             {
                 Id = databaseEntity.Id,
@@ -45,6 +47,8 @@ namespace Hackney.Shared.Tenure.Factories
         // Domain to Entity
         public static TenureInformationDb ToDatabase(this TenureInformation domain)
         {
+            if (domain == null) return null;
+
             return new TenureInformationDb
             {
                 Id = domain.Id,
