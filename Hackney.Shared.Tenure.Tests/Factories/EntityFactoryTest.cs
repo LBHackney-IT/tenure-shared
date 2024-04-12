@@ -47,10 +47,10 @@ namespace Hackney.Shared.Tenure.Tests.Factories
 
             var domainTenure = databaseEntity.ToDomain();
 
-            databaseEntity.Should().BeEquivalentTo(domainTenure, config => config.Excluding(x => x.IsActive));
-
-            // If it is null, cross-static-method calls were not properly covered.
+            // If it is null, cross-static-method calls are not properly covered.
             domainTenure.TempAccInfo.Should().NotBeNull();
+
+            databaseEntity.Should().BeEquivalentTo(domainTenure, config => config.Excluding(x => x.IsActive));
         }
 
         [Fact]
@@ -61,10 +61,10 @@ namespace Hackney.Shared.Tenure.Tests.Factories
 
             var databaseEntity = entity.ToDatabase();
 
-            entity.Should().BeEquivalentTo(databaseEntity);
-
-            // If it is null, cross-static-method calls were not properly covered.
+            // If it is null, cross-static-method calls are not properly covered.
             databaseEntity.TempAccInfo.Should().NotBeNull();
+
+            entity.Should().BeEquivalentTo(databaseEntity);
         }
         #endregion
         #region Temporary Accommodation Information
@@ -106,7 +106,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             taInfoEntity.BookingStatus.Should().Be(domainTAInfo.BookingStatus);
             // If it is null, cross-static-method calls were not properly covered.
             taInfoEntity.AssignedOfficer.Should().NotBeNull();
-            taInfoEntity.AssignedOfficer.Should().Be(domainTAInfo.AssignedOfficer);
+            taInfoEntity.AssignedOfficer.Should().BeEquivalentTo(domainTAInfo.AssignedOfficer);
         }
         [Fact]
         public void TAOfficerDomainMapsFieldsCorrectlyToTAOfficerDatabase()
@@ -161,7 +161,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             taInfoDomain.BookingStatus.Should().Be(entityTAInfo.BookingStatus);
             // If it is null, cross-static-method calls were not properly covered.
             taInfoDomain.AssignedOfficer.Should().NotBeNull();
-            taInfoDomain.AssignedOfficer.Should().Be(entityTAInfo.AssignedOfficer);
+            taInfoDomain.AssignedOfficer.Should().BeEquivalentTo(entityTAInfo.AssignedOfficer);
         }
         [Fact]
         public void TAOfficerEntityMapsFieldsCorrectlyToTAOfficerDomain()

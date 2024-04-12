@@ -91,7 +91,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             taInfoPresentation.BookingStatus.Should().Be(domainTAInfo.BookingStatus);
             // If it is null, cross-static-method calls were not properly covered.
             taInfoPresentation.AssignedOfficer.Should().NotBeNull();
-            taInfoPresentation.AssignedOfficer.Should().Be(domainTAInfo.AssignedOfficer);
+            taInfoPresentation.AssignedOfficer.Should().BeEquivalentTo(domainTAInfo.AssignedOfficer);
         }
         [Fact]
         public void TAOfficerDomainMapsFieldsCorrectlyToTAOfficerResponse()
