@@ -37,7 +37,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             databaseEntity.TenuredAsset.Should().BeEquivalentTo(request.TenuredAsset);
             databaseEntity.TenureType.Should().Be(request.TenureType);
             databaseEntity.Terminated.Should().Be(request.Terminated);
-            databaseEntity.TempAccInfo.Should().BeEquivalentTo(request.TempAccInfo);
+            databaseEntity.TempAccommodationInfo.Should().BeEquivalentTo(request.TempAccommodationInfo);
             databaseEntity.FurtherAccountInformation.Should().BeEquivalentTo(request.FurtherAccountInformation);
         }
 

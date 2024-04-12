@@ -20,7 +20,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public int NumberOfChildrenInProperty { get; set; }
         public bool? HasOffsiteStorage { get; set; }
         // Using a Domain (instead of Request) model because of limitations & risks imposed by the over-engineered entity updater solution
-        public TemporaryAccommodationInfo TempAccInfo { get; set; }
+        public TemporaryAccommodationInfo TempAccommodationInfo { get; set; }
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
         public IEnumerable<LegacyReference> LegacyReferences { get; set; }
         public TenuredAsset TenuredAsset { get; set; }

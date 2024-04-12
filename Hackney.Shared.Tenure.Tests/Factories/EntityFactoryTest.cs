@@ -48,7 +48,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var domainTenure = databaseEntity.ToDomain();
 
             // If it is null, cross-static-method calls are not properly covered.
-            domainTenure.TempAccInfo.Should().NotBeNull();
+            domainTenure.TempAccommodationInfo.Should().NotBeNull();
 
             databaseEntity.Should().BeEquivalentTo(domainTenure, config => config.Excluding(x => x.IsActive));
         }
@@ -62,7 +62,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var databaseEntity = entity.ToDatabase();
 
             // If it is null, cross-static-method calls are not properly covered.
-            databaseEntity.TempAccInfo.Should().NotBeNull();
+            databaseEntity.TempAccommodationInfo.Should().NotBeNull();
 
             entity.Should().BeEquivalentTo(databaseEntity);
         }

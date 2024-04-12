@@ -31,7 +31,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             domain.Should().BeEquivalentTo(response);
 
             // If it is null, cross-static-method calls were not properly covered.
-            response.TempAccInfo.Should().NotBeNull();
+            response.TempAccommodationInfo.Should().NotBeNull();
         }
 
         [Fact]

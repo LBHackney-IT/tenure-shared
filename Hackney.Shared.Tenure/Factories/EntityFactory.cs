@@ -40,7 +40,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = databaseEntity.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = databaseEntity.NumberOfChildrenInProperty,
                 HasOffsiteStorage = databaseEntity.HasOffsiteStorage,
-                TempAccInfo = databaseEntity.TempAccInfo.ToDomain(),
+                TempAccommodationInfo = databaseEntity.TempAccommodationInfo.ToDomain(),
                 FurtherAccountInformation = databaseEntity.FurtherAccountInformation
             };
         }
@@ -78,7 +78,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = domain.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = domain.NumberOfChildrenInProperty,
                 HasOffsiteStorage = domain.HasOffsiteStorage,
-                TempAccInfo = domain.TempAccInfo.ToDatabase(),
+                TempAccommodationInfo = domain.TempAccommodationInfo.ToDatabase(),
                 FurtherAccountInformation = domain.FurtherAccountInformation
             };
         }

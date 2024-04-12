@@ -40,7 +40,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = domain.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = domain.NumberOfChildrenInProperty,
                 HasOffsiteStorage = domain.HasOffsiteStorage,
-                TempAccInfo = domain.TempAccInfo.ToResponse(),
+                TempAccommodationInfo = domain.TempAccommodationInfo.ToResponse(),
                 FurtherAccountInformation = domain.FurtherAccountInformation
             };
         }

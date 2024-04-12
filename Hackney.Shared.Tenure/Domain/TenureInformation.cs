@@ -35,7 +35,7 @@ namespace Hackney.Shared.Tenure.Domain
         public int NumberOfAdultsInProperty { get; set; }
         public int NumberOfChildrenInProperty { get; set; }
         public bool? HasOffsiteStorage { get; set; }
-        public TemporaryAccommodationInfo TempAccInfo { get; set; }
+        public TemporaryAccommodationInfo TempAccommodationInfo { get; set; }
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
 
     }
