@@ -48,8 +48,6 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var domainTenure = databaseEntity.ToDomain();
 
             databaseEntity.Should().BeEquivalentTo(domainTenure, config => config.Excluding(x => x.IsActive));
-            // TODO: cover isActive????
-            // testing only the expired tenure???
 
             // If it is null, cross-static-method calls were not properly covered.
             domainTenure.TempAccInfo.Should().NotBeNull();
