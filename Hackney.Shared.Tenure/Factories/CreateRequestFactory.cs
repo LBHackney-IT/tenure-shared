@@ -35,6 +35,7 @@ namespace Hackney.Shared.Tenure.Factories
                 NumberOfAdultsInProperty = createTenureRequestObject.NumberOfAdultsInProperty,
                 NumberOfChildrenInProperty = createTenureRequestObject.NumberOfChildrenInProperty,
                 HasOffsiteStorage = createTenureRequestObject.HasOffsiteStorage,
+                TempAccInfo = createTenureRequestObject.TempAccInfo.ToDatabase(),
                 FurtherAccountInformation = createTenureRequestObject.FurtherAccountInformation
             };
         }

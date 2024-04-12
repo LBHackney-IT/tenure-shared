@@ -31,6 +31,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests
         public int NumberOfAdultsInProperty { get; set; }
         public int NumberOfChildrenInProperty { get; set; }
         public bool? HasOffsiteStorage { get; set; }
+        public TemporaryAccommodationInfo TempAccInfo { get; set; }
         public FurtherAccountInformation FurtherAccountInformation { get; set; }
     }
 }
