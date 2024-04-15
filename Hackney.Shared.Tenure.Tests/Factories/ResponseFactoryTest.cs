@@ -12,6 +12,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
     {
         private readonly Fixture _fixture = new Fixture();
 
+        #region Tenure Information
         [Fact]
         public void CanMapANullTenureInfoToAResponseObject()
         {
@@ -26,8 +27,11 @@ namespace Hackney.Shared.Tenure.Tests.Factories
         {
             var domain = _fixture.Create<TenureInformation>();
             var response = domain.ToResponse();
+
             domain.Should().BeEquivalentTo(response);
 
+            // If it is null, cross-static-method calls were not properly covered.
+            response.TempAccommodationInfo.Should().NotBeNull();
         }
 
         [Fact]
@@ -48,5 +52,61 @@ namespace Hackney.Shared.Tenure.Tests.Factories
 
             responseNotes.Should().BeEmpty();
         }
+        #endregion
+        #region Temporary Accommodation details
+        [Fact]
+        public void NullTAOfficerDomainMapsToNullTAOfficerResponse()
+        {
+            // arrange
+            TemporaryAccommodationOfficer domainTAOfficer = null;
+
+            // act
+            var taOfficerPresentation = domainTAOfficer.ToResponse();
+
+            // assert
+            taOfficerPresentation.Should().BeNull();
+        }
+        [Fact]
+        public void NullTAInfoDomainMapsToNullTAInfoResponse()
+        {
+            // arrange
+            TemporaryAccommodationInfo domainTAInfo = null;
+
+            // act
+            var taInfoPresentation = domainTAInfo.ToResponse();
+
+            // assert
+            taInfoPresentation.Should().BeNull();
+        }
+        [Fact]
+        public void TAInfoDomainMapsFieldsCorrectlyToTAInfoResponse()
+        {
+            // arrange
+            var domainTAInfo = _fixture.Create<TemporaryAccommodationInfo>();
+
+            // act
+            var taInfoPresentation = domainTAInfo.ToResponse();
+
+            // assert
+            taInfoPresentation.BookingStatus.Should().Be(domainTAInfo.BookingStatus);
+            // If it is null, cross-static-method calls were not properly covered.
+            taInfoPresentation.AssignedOfficer.Should().NotBeNull();
+            taInfoPresentation.AssignedOfficer.Should().BeEquivalentTo(domainTAInfo.AssignedOfficer);
+        }
+        [Fact]
+        public void TAOfficerDomainMapsFieldsCorrectlyToTAOfficerResponse()
+        {
+            // arrange
+            var domainTAOfficer = _fixture.Create<TemporaryAccommodationOfficer>();
+
+            // act
+            var taOfficerPresentation = domainTAOfficer.ToResponse();
+
+            // assert
+            taOfficerPresentation.FirstName.Should().Be(domainTAOfficer.FirstName);
+            taOfficerPresentation.LastName.Should().Be(domainTAOfficer.LastName);
+            taOfficerPresentation.Email.Should().Be(domainTAOfficer.Email);
+        }
+        #endregion
     }
 }
