@@ -1,5 +1,9 @@
 PROJECT_NAME := hackney-shared-tenure-test
 
+# The dangling image removal doesn't behave as expected on Windows Powershell.
+# It is recommended to run Makefile commands using `git bash` if you're using Windows.
+# If you decide to stick with Powershell regardless, everything except dangling image removal will still work,
+# however, you'll need to remove those <none> <none> images by listing out their hashes manually.
 .PHONY: clean
 clean:
 	docker rmi ${PROJECT_NAME}
