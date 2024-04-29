@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Amazon.DynamoDBv2.Model;
 using Hackney.Shared.Tenure.Boundary.Response;
 using Hackney.Shared.Tenure.Domain;
 using Hackney.Shared.Tenure.Infrastructure;
@@ -58,6 +59,7 @@ namespace Hackney.Shared.Tenure.Factories
 
             return new TemporaryAccommodationOfficerResponse
             {
+                Id = taOfficerDomain.Id,
                 FirstName = taOfficerDomain.FirstName,
                 LastName = taOfficerDomain.LastName,
                 Email = taOfficerDomain.Email

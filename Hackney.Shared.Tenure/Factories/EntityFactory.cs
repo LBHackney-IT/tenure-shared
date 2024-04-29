@@ -91,6 +91,7 @@ namespace Hackney.Shared.Tenure.Factories
 
             return new TemporaryAccommodationOfficer
             {
+                Id = taOfficerEntity.Id,
                 FirstName = taOfficerEntity.FirstName,
                 LastName = taOfficerEntity.LastName,
                 Email = taOfficerEntity.Email

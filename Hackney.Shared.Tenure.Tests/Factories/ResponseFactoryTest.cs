@@ -103,6 +103,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var taOfficerPresentation = domainTAOfficer.ToResponse();
 
             // assert
+            taOfficerPresentation.Id.Should().Be(domainTAOfficer.Id);
             taOfficerPresentation.FirstName.Should().Be(domainTAOfficer.FirstName);
             taOfficerPresentation.LastName.Should().Be(domainTAOfficer.LastName);
             taOfficerPresentation.Email.Should().Be(domainTAOfficer.Email);
