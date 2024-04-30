@@ -118,6 +118,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var taOfficerEntity = domainTAOfficer.ToDatabase();
 
             // assert
+            taOfficerEntity.Id.Should().Be(domainTAOfficer.Id);
             taOfficerEntity.FirstName.Should().Be(domainTAOfficer.FirstName);
             taOfficerEntity.LastName.Should().Be(domainTAOfficer.LastName);
             taOfficerEntity.Email.Should().Be(domainTAOfficer.Email);
@@ -173,6 +174,7 @@ namespace Hackney.Shared.Tenure.Tests.Factories
             var taOfficerDomain = entityTAOfficer.ToDomain();
 
             // assert
+            taOfficerDomain.Id.Should().Be(entityTAOfficer.Id);
             taOfficerDomain.FirstName.Should().Be(entityTAOfficer.FirstName);
             taOfficerDomain.LastName.Should().Be(entityTAOfficer.LastName);
             taOfficerDomain.Email.Should().Be(entityTAOfficer.Email);
