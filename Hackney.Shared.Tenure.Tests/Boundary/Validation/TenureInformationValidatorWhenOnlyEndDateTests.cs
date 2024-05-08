@@ -10,6 +10,8 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     {
         public TenureInformationValidatorWhenOnlyEndDate _classUnderTest;
 
+        private DateTime _now;
+
         public TenureInformationValidatorWhenOnlyEndDateTests()
         {
             _classUnderTest = new TenureInformationValidatorWhenOnlyEndDate();
@@ -22,7 +24,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
             var request = new TenureInformation()
             {
                 StartOfTenureDate = null,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(1)
+                EndOfTenureDate = _now.AddDays(1)
             };
 
             var result = _classUnderTest.TestValidate(request);
@@ -35,8 +37,24 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new TenureInformation()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(1)
+                StartOfTenureDate = _now,
+                EndOfTenureDate = _now.AddDays(1)
+            };
+
+            var result = _classUnderTest.TestValidate(request);
+
+            result.ShouldNotHaveValidationErrorFor(x => x.EndOfTenureDate);
+        }
+
+        [Fact]
+        public void WhenEndDateIsEqualToStartDateNoError()
+        {
+            var now = DateTime.UtcNow;
+
+            var request = new TenureInformation()
+            {
+                StartOfTenureDate = now,
+                EndOfTenureDate = now
             };
 
             var result = _classUnderTest.TestValidate(request);
@@ -47,10 +65,11 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         [Fact]
         public void WhenEndDateIsLessThanStartDateHasError()
         {
+            var now = DateTime.UtcNow;
             var request = new TenureInformation()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(-1)
+                StartOfTenureDate = now,
+                EndOfTenureDate = now.AddDays(-1)
             };
 
             var result = _classUnderTest.TestValidate(request);
