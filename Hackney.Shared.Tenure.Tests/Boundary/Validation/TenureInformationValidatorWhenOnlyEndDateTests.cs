@@ -10,7 +10,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     {
         public TenureInformationValidatorWhenOnlyEndDate _classUnderTest;
 
-        private DateTime _now;
+        DateTime _now = new DateTime(2024, 5, 7);
 
         public TenureInformationValidatorWhenOnlyEndDateTests()
         {
