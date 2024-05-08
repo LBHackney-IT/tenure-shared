@@ -65,11 +65,10 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         [Fact]
         public void WhenEndDateIsLessThanStartDateHasError()
         {
-            var now = DateTime.UtcNow;
             var request = new TenureInformation()
             {
-                StartOfTenureDate = now,
-                EndOfTenureDate = now.AddDays(-1)
+                StartOfTenureDate = _now,
+                EndOfTenureDate = _now.AddDays(-1)
             };
 
             var result = _classUnderTest.TestValidate(request);
