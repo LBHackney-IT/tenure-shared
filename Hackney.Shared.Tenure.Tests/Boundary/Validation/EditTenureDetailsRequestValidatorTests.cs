@@ -9,6 +9,8 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     public class EditTenureDetailsRequestValidatorTests
     {
         public EditTenureDetailsRequestValidation _classUnderTest;
+        DateTime _aSetDate = new DateTime(2024, 5, 7);
+
         private const string StringWithTags = "Some string with <tag> in it.";
 
         public EditTenureDetailsRequestValidatorTests()
@@ -21,7 +23,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new EditTenureDetailsRequestObject()
             {
-                StartOfTenureDate = DateTime.UtcNow,
+                StartOfTenureDate = _aSetDate,
                 EndOfTenureDate = null
             };
 
@@ -36,7 +38,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
             var request = new EditTenureDetailsRequestObject()
             {
                 StartOfTenureDate = null,
-                EndOfTenureDate = DateTime.UtcNow
+                EndOfTenureDate = _aSetDate
             };
 
             var result = _classUnderTest.TestValidate(request);
@@ -49,8 +51,21 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new EditTenureDetailsRequestObject()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(1)
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate.AddDays(1)
+            };
+
+            var result = _classUnderTest.TestValidate(request);
+
+            result.ShouldNotHaveAnyValidationErrors();
+        }
+        [Fact]
+        public void WhenEndDateIsEqualToStartDateNoError()
+        {
+            var request = new EditTenureDetailsRequestObject()
+            {
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate
             };
 
             var result = _classUnderTest.TestValidate(request);
@@ -63,8 +78,8 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new EditTenureDetailsRequestObject()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(-1)
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate.AddDays(-1)
             };
 
             var result = _classUnderTest.TestValidate(request);
