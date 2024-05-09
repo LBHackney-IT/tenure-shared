@@ -49,12 +49,11 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         [Fact]
         public void WhenEndDateIsEqualToStartDateNoError()
         {
-            var now = DateTime.UtcNow;
 
             var request = new TenureInformation()
             {
-                StartOfTenureDate = now,
-                EndOfTenureDate = now
+                StartOfTenureDate = _now,
+                EndOfTenureDate = _now
             };
 
             var result = _classUnderTest.TestValidate(request);
