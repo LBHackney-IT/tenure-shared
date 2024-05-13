@@ -9,6 +9,7 @@ namespace Hackney.Shared.Tenure.Domain
         public DateTime? RentLetterSentDate { get; set; }
         public DateTime? RentCardGivenDate { get; set; }
         public DateTime? TenureAcceptedDate { get; set; }
+        public DateTime? TenureRefusedDate { get; set; }
         public bool? IsSection208NoticeSent { get; set; }
     }
 }
