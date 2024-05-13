@@ -9,6 +9,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     public class CreateTenureRequestValidatorTests
     {
         public CreateTenureRequestValidation _classUnderTest;
+        DateTime _aSetDate = new DateTime(2024, 5, 7);
 
         public CreateTenureRequestValidatorTests()
         {
@@ -17,24 +18,36 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         private const string StringWithTags = "Some string with <tag> in it.";
 
         [Fact]
-        public void WhenEndDateisCorrectNoError()
+        public void WhenEndDateisAfterStartDateNoError()
         {
             var request = new CreateTenureRequestObject()
             {
-                EndOfTenureDate = DateTime.UtcNow.AddDays(1),
-                StartOfTenureDate = DateTime.UtcNow
+                EndOfTenureDate = _aSetDate.AddDays(1),
+                StartOfTenureDate = _aSetDate
             };
             var result = _classUnderTest.TestValidate(request);
             result.ShouldNotHaveValidationErrorFor(x => x.EndOfTenureDate);
         }
 
         [Fact]
-        public void WhenEndDateIsInCorrectHasError()
+        public void WhenEndDateisOnStartDateNoError()
         {
             var request = new CreateTenureRequestObject()
             {
-                EndOfTenureDate = DateTime.UtcNow,
-                StartOfTenureDate = DateTime.UtcNow.AddDays(1)
+                EndOfTenureDate = _aSetDate,
+                StartOfTenureDate = _aSetDate
+            };
+            var result = _classUnderTest.TestValidate(request);
+            result.ShouldNotHaveValidationErrorFor(x => x.EndOfTenureDate);
+        }
+
+        [Fact]
+        public void WhenEndDateIsIncorrectHasError()
+        {
+            var request = new CreateTenureRequestObject()
+            {
+                EndOfTenureDate = _aSetDate,
+                StartOfTenureDate = _aSetDate.AddDays(1)
             };
             var result = _classUnderTest.TestValidate(request);
             result.ShouldHaveValidationErrorFor(x => x.EndOfTenureDate)

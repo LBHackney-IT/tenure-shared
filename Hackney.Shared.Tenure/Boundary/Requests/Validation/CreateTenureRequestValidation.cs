@@ -8,7 +8,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
         public CreateTenureRequestValidation()
         {
             RuleFor(x => x.EndOfTenureDate)
-                .GreaterThan(x => x.StartOfTenureDate)
+                .GreaterThanOrEqualTo(x => x.StartOfTenureDate)
                 .WithErrorCode(ErrorCodes.TenureEndDate);
 
             RuleFor(x => x.PaymentReference).NotXssString()
