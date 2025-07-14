@@ -97,6 +97,21 @@ namespace Hackney.Shared.Tenure.Factories
                 Email = taOfficerEntity.Email
             };
         }
+        public static EmergencyBooking ToDomain(this TemporaryAccommodationEmergencyBookingDb taEmergencyBookingEntity)
+        {
+            if (taEmergencyBookingEntity == null) return null;
+
+            return new EmergencyBooking
+            {
+                DraftBooking = taEmergencyBookingEntity.DraftBooking,
+                IsRentAccountRequired = taEmergencyBookingEntity.IsRentAccountRequired,
+                NoRentAccountReason = taEmergencyBookingEntity.NoRentAccountReason,
+                RentLetterSentDate = taEmergencyBookingEntity.RentLetterSentDate,
+                RentCardGivenDate = taEmergencyBookingEntity.RentCardGivenDate,
+                TenureAcceptedDate = taEmergencyBookingEntity.TenureAcceptedDate,
+                IsSection208NoticeSent = taEmergencyBookingEntity.IsSection208NoticeSent
+            };
+        }
         // Entity to Domain
         public static TemporaryAccommodationInfo ToDomain(this TemporaryAccommodationInfoDb taInfoEntity)
         {
@@ -105,7 +120,8 @@ namespace Hackney.Shared.Tenure.Factories
             return new TemporaryAccommodationInfo
             {
                 BookingStatus = taInfoEntity.BookingStatus,
-                AssignedOfficer = taInfoEntity.AssignedOfficer.ToDomain()
+                AssignedOfficer = taInfoEntity.AssignedOfficer.ToDomain(),
+                EmergencyBooking = taInfoEntity.EmergencyBooking.ToDomain()
             };
         }
 
@@ -122,6 +138,21 @@ namespace Hackney.Shared.Tenure.Factories
                 Email = taOfficerDomain.Email
             };
         }
+        public static TemporaryAccommodationEmergencyBookingDb ToDatabase(this EmergencyBooking taEmergencyBookingDomain)
+        {
+            if (taEmergencyBookingDomain == null) return null;
+
+            return new TemporaryAccommodationEmergencyBookingDb
+            {
+                DraftBooking = taEmergencyBookingDomain.DraftBooking,
+                IsRentAccountRequired = taEmergencyBookingDomain.IsRentAccountRequired,
+                NoRentAccountReason = taEmergencyBookingDomain.NoRentAccountReason,
+                RentLetterSentDate = taEmergencyBookingDomain.RentLetterSentDate,
+                RentCardGivenDate = taEmergencyBookingDomain.RentCardGivenDate,
+                TenureAcceptedDate = taEmergencyBookingDomain.TenureAcceptedDate,
+                IsSection208NoticeSent = taEmergencyBookingDomain.IsSection208NoticeSent
+            };
+        }
         // Entity to Domain
         public static TemporaryAccommodationInfoDb ToDatabase(this TemporaryAccommodationInfo taInfoDomain)
         {
@@ -130,7 +161,8 @@ namespace Hackney.Shared.Tenure.Factories
             return new TemporaryAccommodationInfoDb
             {
                 BookingStatus = taInfoDomain.BookingStatus,
-                AssignedOfficer = taInfoDomain.AssignedOfficer.ToDatabase()
+                AssignedOfficer = taInfoDomain.AssignedOfficer.ToDatabase(),
+                EmergencyBooking = taInfoDomain.EmergencyBooking.ToDatabase()
             };
         }
         #endregion

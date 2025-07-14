@@ -14,5 +14,6 @@ namespace Hackney.Shared.Tenure.Infrastructure
         /// </summary>
         public string BookingStatus { get; set; }
         public TemporaryAccommodationOfficerDb AssignedOfficer { get; set; }
+        public TemporaryAccommodationEmergencyBookingDb EmergencyBooking { get; set; }
     }
 }

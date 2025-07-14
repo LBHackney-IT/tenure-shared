@@ -65,6 +65,22 @@ namespace Hackney.Shared.Tenure.Factories
             };
         }
 
+        public static TemporaryAccommodationEmergencyBookingResponse ToResponse(this EmergencyBooking taEmergencyBookingDomain)
+        {
+            if (taEmergencyBookingDomain == null) return null;
+
+            return new TemporaryAccommodationEmergencyBookingResponse
+            {
+                DraftBooking = taEmergencyBookingDomain.DraftBooking,
+                IsRentAccountRequired = taEmergencyBookingDomain.IsRentAccountRequired,
+                NoRentAccountReason = taEmergencyBookingDomain.NoRentAccountReason,
+                RentLetterSentDate = taEmergencyBookingDomain.RentLetterSentDate,
+                RentCardGivenDate = taEmergencyBookingDomain.RentCardGivenDate,
+                TenureAcceptedDate = taEmergencyBookingDomain.TenureAcceptedDate,
+                IsSection208NoticeSent = taEmergencyBookingDomain.IsSection208NoticeSent
+            };
+        }
+
         public static TemporaryAccommodationInfoResponse ToResponse(this TemporaryAccommodationInfo taInfoDomain)
         {
             if (taInfoDomain == null) return null;
@@ -72,7 +88,8 @@ namespace Hackney.Shared.Tenure.Factories
             return new TemporaryAccommodationInfoResponse
             {
                 BookingStatus = taInfoDomain.BookingStatus,
-                AssignedOfficer = taInfoDomain.AssignedOfficer.ToResponse()
+                AssignedOfficer = taInfoDomain.AssignedOfficer.ToResponse(),
+                EmergencyBooking = taInfoDomain.EmergencyBooking.ToResponse(),
             };
         }
         #endregion
