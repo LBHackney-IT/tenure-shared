@@ -13,7 +13,7 @@ namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
             When(tenure => tenure.EndOfTenureDate != null, () =>
             {
                 RuleFor(x => x.StartOfTenureDate)
-                    .LessThan(x => x.EndOfTenureDate)
+                    .LessThanOrEqualTo(x => x.EndOfTenureDate)
                     .WithErrorCode(ErrorCodes.TenureEndDate);
             });
         }

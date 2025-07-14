@@ -9,6 +9,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
     public class TenureInformationValidatorWhenOnlyStartDateTests
     {
         public TenureInformationValidatorWhenOnlyStartDate _classUnderTest;
+        DateTime _aSetDate = new DateTime(2024, 5, 7);
 
         public TenureInformationValidatorWhenOnlyStartDateTests()
         {
@@ -20,7 +21,7 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new TenureInformation()
             {
-                StartOfTenureDate = DateTime.UtcNow,
+                StartOfTenureDate = _aSetDate,
                 EndOfTenureDate = null
             };
 
@@ -34,8 +35,22 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new TenureInformation()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(1)
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate.AddDays(1)
+            };
+
+            var result = _classUnderTest.TestValidate(request);
+
+            result.ShouldNotHaveValidationErrorFor(x => x.EndOfTenureDate);
+        }
+
+        [Fact]
+        public void WhenEndDateIsEqualToStartDateNoError()
+        {
+            var request = new TenureInformation()
+            {
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate
             };
 
             var result = _classUnderTest.TestValidate(request);
@@ -48,8 +63,8 @@ namespace Hackney.Shared.Tenure.Tests.Boundary.Validation
         {
             var request = new TenureInformation()
             {
-                StartOfTenureDate = DateTime.UtcNow,
-                EndOfTenureDate = DateTime.UtcNow.AddDays(-1)
+                StartOfTenureDate = _aSetDate,
+                EndOfTenureDate = _aSetDate.AddDays(-1)
             };
 
             var result = _classUnderTest.TestValidate(request);

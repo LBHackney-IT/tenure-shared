@@ -14,9 +14,9 @@ namespace Hackney.Shared.Tenure.Boundary.Requests.Validation
             RuleFor(x => x.StartOfTenureDate)
                 .NotNull();
 
-            // the end date must be greater than start date
+            // the end date must be greater than or the same as the start date
             RuleFor(x => x.EndOfTenureDate)
-            .GreaterThan(x => x.StartOfTenureDate)
+            .GreaterThanOrEqualTo(x => x.StartOfTenureDate)
             .WithErrorCode(ErrorCodes.TenureEndDate);
         }
     }
