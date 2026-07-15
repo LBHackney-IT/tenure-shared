@@ -36,6 +36,8 @@ namespace Hackney.Shared.Tenure.Domain
         public static TenureType TempAnnex => new TenureType() { Code = "TLA", Description = "Temp Annex" };
         public static TenureType TempPrivateLt => new TenureType() { Code = "TPL", Description = "Temp Private Lt" };
         public static TenureType TempTraveller => new TenureType() { Code = "TRA", Description = "Temp Traveller" };
+        public static TenureType HomeOfficeNonSecure => new TenureType() { Code = "HON", Description = "HomeOffice Non-Secure" };
+
 
         public static List<string> FreeholderCodes => new List<string>
         {
