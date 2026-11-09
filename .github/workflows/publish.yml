@@ -36,10 +36,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install dotnet format
-        run: dotnet tool install dotnet-format --tool-path ./dotnet-format-local/
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
       - name: Run formatter check
-        run: ./dotnet-format-local/dotnet-format --check
+        run: dotnet format --verify-no-changes
 
   build-and-test:
     name: Build & Test
@@ -67,6 +69,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
       - name: Build the Package
         run: dotnet pack Hackney.Shared.Tenure -p:PackageVersion=$VERSION --configuration Release
       - name: Publish the Package
