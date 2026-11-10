@@ -8,6 +8,8 @@ For full details on how to use the package(s) within this repository please read
 
 ## Contributing
 
+Use the .NET 10 SDK to build, test, and format this repository. The shared NuGet library continues to target .NET Standard 2.1; the tests target .NET 10.
+
 ### Automated Versioning
 The pipeline automatically updates the package version number.
 

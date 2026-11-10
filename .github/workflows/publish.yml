@@ -33,13 +33,22 @@ jobs:
     name: Check code formatting
     runs-on: ubuntu-latest
     needs: calculate-version
+    permissions:
+      contents: read
+      packages: read
+    env:
+      LBHPACKAGESTOKEN: ${{secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install dotnet format
-        run: dotnet tool install dotnet-format --tool-path ./dotnet-format-local/
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore packages
+        run: dotnet restore Hackney.Shared.Tenure.sln
       - name: Run formatter check
-        run: ./dotnet-format-local/dotnet-format --check
+        run: dotnet format --verify-no-changes --no-restore
 
   build-and-test:
     name: Build & Test
@@ -67,6 +76,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
       - name: Build the Package
         run: dotnet pack Hackney.Shared.Tenure -p:PackageVersion=$VERSION --configuration Release
       - name: Publish the Package
